@@ -1,7 +1,7 @@
 {
   "name": "dsh-tavily-search",
   "description": "Tavily-backed search provider (direct Tavily Search API, no LLM tokens) for the DeepSeek Harness web capability seam (ctx.web)",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "type": "module",
   "main": "lib/index.js",
   "exports": {
