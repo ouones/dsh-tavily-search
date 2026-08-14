@@ -14,15 +14,17 @@ DeepSeek Harness (DSH) 的 Tavily 网页搜索 provider 插件。
 
 ## 安装
 
-需要 Node.js >= 18（DSH 官方建议 22.19+）。插件作为 bundle 分发，安装后自动成为 profile 的配置层：
+需要 Node.js >= 18（DSH 官方建议 22.19+）。插件作为 bundle 分发，安装后自动成为 profile 的配置层。**安装不需要任何账号**——公开 npm 包可匿名下载，无需登录：
 
 ```sh
-# 从 npm 安装（推荐，需要本机已登录 npm）
+# 从 npm 安装（公开包，无需 npm 登录）
 dsh plugin --profile web add dsh-tavily-search
 
-# 或者从 GitHub 安装（无需 npm 账号）
+# 或者从 GitHub 安装（同样无需账号）
 dsh plugin --profile web add github:ouones/dsh-tavily-search
 ```
+
+（npm 登录只在**发布**新版本时需要，与安装无关。）
 
 装完重启 `dsh web` 即可。`dsh plugin` 是 profile 目录里的 pnpm 转发层；若首次安装提示 `ERR_PNPM_IGNORED_BUILDS`，按提示在 profile 的 `pnpm-workspace.yaml` 的 `allowBuilds` 里加入相应依赖后重试。
 
