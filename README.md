@@ -8,13 +8,13 @@ DeepSeek Harness (DSH) 的 Tavily 网页搜索 provider 插件。
 
 - 直接调用 `api.tavily.com/search`，无模型参与，搜索不烧 token
 - 注册为 DSH web seam 的搜索 provider（id: `tavily-official`），工具名为 `web-search-tavily`
-- 凭据通过 DSH 凭据服务 / 环境变量注入，key 只在你的机器上，绝不共享
+- 凭据通过 DSH 凭据服务 / 环境变量注入，key 由各用户自行保管，不会随插件分发
 - 标准 bundle 插件：`dsh plugin add` 一条命令装好并自动挂载，无需手改 patch
 - 纯 JS（ESM），无构建步骤
 
 ## 安装
 
-需要 Node.js >= 18（DSH 官方建议 22.19+）。插件作为 bundle 分发，安装后自动成为 profile 的配置层。**安装不需要任何账号**——公开 npm 包可匿名下载，无需登录：
+需要 DSH 支持的环境（官方要求 Node.js 22.19+，本包自身要求 Node >= 18）。插件作为 bundle 分发，安装后自动成为 profile 的配置层。**安装不需要任何账号**——公开 npm 包可匿名下载，无需登录：
 
 ```sh
 # 从 npm 安装（公开包，无需 npm 登录）
@@ -56,9 +56,9 @@ dsh plugin --profile web add github:ouones/dsh-tavily-search
 
 > 注意：按 id 覆盖时 `config` 是**整段替换**（不是深合并），要改的键都要写上。
 
-### 3.（可选）切换 web seam 默认搜索到 Tavily
+### 3.（可选）把 web seam 默认搜索切到 Tavily
 
-想让 `include:web-search` 等入口默认走 Tavily、并停用官方 DeepSeek 搜索（避免搜索烧 LLM token），在 profile 的 `cordis.patch.yml` 追加：
+想让搜索默认走 Tavily、并停用官方 DeepSeek 搜索（避免搜索消耗 LLM token），在 profile 的 `cordis.patch.yml` 追加：
 
 ```yaml
 - id: web
