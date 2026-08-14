@@ -1,0 +1,14 @@
+# dsh-tavily-search bundle patch.
+#
+# Applied as a profile bundle layer (declared via package.json `dsh.bundle.patch`).
+# Installed with: dsh plugin --profile <name> add dsh-tavily-search
+# This row mounts the Tavily search provider into the web seam. Users can
+# override the config below from their profile's cordis.patch.yml / home-level
+# patch by targeting the same stable id.
+- insert:
+    - id: web-search-tavily
+      name: dsh-tavily-search
+      config:
+        apiKeyEnv: TAVILY_API_KEY
+        searchDepth: basic
+        includeAnswer: true

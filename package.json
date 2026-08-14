@@ -1,0 +1,51 @@
+{
+  "name": "dsh-tavily-search",
+  "description": "Tavily-backed search provider (direct Tavily Search API, no LLM tokens) for the DeepSeek Harness web capability seam (ctx.web)",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek-harness",
+    "dsh",
+    "cordis",
+    "plugin",
+    "tavily",
+    "web-search",
+    "search",
+    "agent"
+  ],
+  "license": "MIT",
+  "author": "ouones <clj1105557035@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ouones/dsh-tavily-search.git"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-credentials": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-launch-environment": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-settings": "^0.1.0-rc.6",
+    "@deepseek-ai/dsh-web": "^0.1.0-rc.6"
+  },
+  "dependencies": {
+    "@deepseek-ai/schemastery": "^3.18.1"
+  }
+}
